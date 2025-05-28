@@ -463,7 +463,7 @@ label input {
 }
 
 html {
-  background-image: url('../8bit.jpg'); /* Adjust path if needed */
+  background-image: url('../media/background.jpg'); /* Adjust path if needed */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
