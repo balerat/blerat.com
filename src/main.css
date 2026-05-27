@@ -4,8 +4,12 @@
   --font-family: "JetBrains Mono", monospace;
   --line-height: 1.20rem;
   --border-thickness: 2px;
-  --text-color: #000;
-  --text-color-alt: #666;
+  --text-color: #1F1F1F;
+  /* --text-color-alt: #666; */
+  /* --background-color: #fff; */
+  /* --background-color-alt: #eee; */
+
+  --text-color-alt: #4123;
   --background-color: #fff;
   --background-color-alt: #eee;
 
@@ -20,15 +24,14 @@
   font-variant-numeric: tabular-nums lining-nums;
   font-size: 16px;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: #fff;
-    --text-color-alt: #aaa;
-    --background-color: #000;
-    --background-color-alt: #111;
-  }
-}
+/* @media (prefers-color-scheme: dark) { */
+/*   :root { */
+/*     --text-color: #E3E3E3; */
+/*     --text-color-alt: #4123; */
+/*     --background-color: #FFF; */
+/*     --background-color-alt: #FFF; */
+/*   } */
+/* } */
 
 * {
   box-sizing: border-box;
@@ -463,7 +466,7 @@ label input {
 }
 
 html {
-  background-image: url('../media/background.jpg'); /* Adjust path if needed */
+  background-image: url('../media/shark.jpg'); /* Adjust path if needed */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -490,11 +493,11 @@ table {
   width: calc(round(down, 100%, 1ch));
   border-collapse: collapse;
   margin: 0 0 calc(var(--line-height) * 2);
-  background-color: black; /* ← Add this line */
+  background-color: transparent; /* ← Add this line */
 }
 
 .content-blur {
-  background: rgba(0, 0, 0, 0.5); /* light semi-transparent overlay */
+  background: rgba(221, 177, 136, 0.3); /* light semi-transparent overlay */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px); /* for Safari */
   border-radius: 8px;
