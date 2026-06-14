@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Baptiste Lerat" />
+  <title>Quasicrystal plotter — blerat.com</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐅</text></svg>" />
+  <link rel="stylesheet" href="../src/reset.css" />
+  <link rel="stylesheet" href="../src/main.css" />
+  <script src="../src/site.js"></script>
+</head>
+
+<body>
+  <main class="card">
+
+    <header class="site-header">
+      <a class="wordmark" href="../index.html">~/blerat</a>
+      <div class="header-right">
+        <nav>
+          <a href="../index.html">home</a>
+          <a href="notes.html">notes</a>
+          <a href="projects.html">projects</a>
+          <a href="toys.html" aria-current="page">toys</a>
+          <a href="resume.html">resume</a>
+        </nav>
+        <button class="theme-toggle" aria-label="toggle dark mode">☾</button>
+      </div>
+    </header>
+
+    <h1>Quasicrystal plotter</h1>
+    <p class="subtitle">Order without periodicity, from nothing but interfering plane waves.</p>
+
+    <div class="toy-controls">
+      <label>beams
+        <input id="beams" type="range" min="3" max="11" value="5" />
+        <span id="beams-out">5</span>
+      </label>
+      <label>zoom
+        <input id="zoom" type="range" min="4" max="40" value="24" />
+      </label>
+      <label>
+        <input id="animate" type="checkbox" checked />
+        animate
+      </label>
+    </div>
+
+    <canvas id="qc" class="toy-canvas" width="520" height="520"></canvas>
+
+    <p>
+      Each pixel sums <em>N</em> cosine waves whose wavevectors are spread evenly
+      over half a circle. For <em>N</em> = 2 or 3 you get an ordinary periodic
+      lattice — but for <em>N</em> = 5 the pattern shows tenfold rotational
+      symmetry, which no periodic crystal can have. This is the same order found
+      in Penrose tilings, and it is exactly how quasicrystalline optical lattices
+      are made in cold-atom labs: superimpose laser beams at the right angles and
+      the atoms feel a quasiperiodic potential.
+    </p>
+
+    <footer class="site-footer">
+      <span>© 2026 Baptiste Lerat</span>
+      <span>background: Henri Rousseau, <em>Tiger in a Tropical Storm</em> (1891)</span>
+    </footer>
+
+  </main>
+
+  <script>
+    (function () {
+      var canvas = document.getElementById('qc');
+      var ctx = canvas.getContext('2d');
+      var W = canvas.width, H = canvas.height;
+      var img = ctx.createImageData(W, H);
+
+      var beamsInput = document.getElementById('beams');
+      var beamsOut = document.getElementById('beams-out');
+      var zoomInput = document.getElementById('zoom');
+      var animInput = document.getElementById('animate');
+
+      var phase = 0;
+      var raf = null;
+
+      // deep jungle green -> cream -> tiger orange
+      var c0 = [29, 43, 22], c1 = [243, 238, 221], c2 = [191, 91, 31];
+
+      function draw() {
+        var N = +beamsInput.value;
+        var freq = +zoomInput.value;
+        var cs = [], sn = [];
+        for (var j = 0; j < N; j++) {
+          var th = Math.PI * j / N;
+          cs.push(Math.cos(th) * freq);
+          sn.push(Math.sin(th) * freq);
+        }
+        var d = img.data, p = 0;
+        for (var y = 0; y < H; y++) {
+          var v = (y / H - 0.5) * 2;
+          for (var x = 0; x < W; x++) {
+            var u = (x / W - 0.5) * 2;
+            var s = 0;
+            for (j = 0; j < N; j++) s += Math.cos(u * cs[j] + v * sn[j] + phase);
+            var t = (Math.tanh(s) + 1) / 2;
+            var a, b, k;
+            if (t < 0.5) { a = c0; b = c1; k = t * 2; }
+            else { a = c1; b = c2; k = (t - 0.5) * 2; }
+            d[p++] = a[0] + (b[0] - a[0]) * k;
+            d[p++] = a[1] + (b[1] - a[1]) * k;
+            d[p++] = a[2] + (b[2] - a[2]) * k;
+            d[p++] = 255;
+          }
+        }
+        ctx.putImageData(img, 0, 0);
+      }
+
+      function tick() {
+        phase += 0.035;
+        draw();
+        raf = requestAnimationFrame(tick);
+      }
+
+      function setAnimation() {
+        if (animInput.checked && !raf) {
+          raf = requestAnimationFrame(tick);
+        } else if (!animInput.checked && raf) {
+          cancelAnimationFrame(raf);
+          raf = null;
+        }
+      }
+
+      beamsInput.addEventListener('input', function () {
+        beamsOut.textContent = beamsInput.value;
+        if (!raf) draw();
+      });
+      zoomInput.addEventListener('input', function () { if (!raf) draw(); });
+      animInput.addEventListener('change', setAnimation);
+
+      draw();
+      setAnimation();
+    })();
+  </script>
+</body>
+
+</html>

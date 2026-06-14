@@ -1,101 +1,114 @@
-<!-- publications.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Publications - Blerat</title>
+  <meta name="author" content="Baptiste Lerat" />
+  <title>Resume — blerat.com</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐅</text></svg>" />
   <link rel="stylesheet" href="../src/reset.css" />
   <link rel="stylesheet" href="../src/main.css" />
+  <script src="../src/site.js"></script>
 </head>
+
 <body>
-  <div class="content-blur">
-    <h1 class="title">Blerat.com</h1>
+  <main class="card">
 
-  <table class="header">
-    <tr>
-      <td class="width-min"><a href="../index.html">Home</a></td>
-      <!-- <td class="width-min"><a href="blog.html">Blog</a></td> -->
-      <td class="width-min"><a href="projects.html">Projects</a></td>
-      <!-- <td class="width-min"><a href="videos.html">Videos</a></td> -->
-      <td class="width-min"><a href="resume.html">Resume</a></td>
-    </tr>
-  </table>
+    <header class="site-header">
+      <a class="wordmark" href="../index.html">~/blerat</a>
+      <div class="header-right">
+        <nav>
+          <a href="../index.html">home</a>
+          <a href="notes.html">notes</a>
+          <a href="projects.html">projects</a>
+          <a href="toys.html">toys</a>
+          <a href="resume.html" aria-current="page">resume</a>
+        </nav>
+        <button class="theme-toggle" aria-label="toggle dark mode">☾</button>
+      </div>
+    </header>
 
-    <h1 class="title">Resume</h1>
-    <p>Here is my resume, you can download it here: <a href="../media/resume.pdf" download>Resume(PDF)</a></p>
+    <h1>Resume</h1>
+    <p class="subtitle">Also available as a <a href="../media/resume.pdf" download>PDF</a>.</p>
+
     <h2>Education</h2>
-  <table>
-    <thead>
-      <tr>
-        <th class="width-min">Institution</th>
-        <th class="width-auto">Program</th>
-        <th class="width-min">Years</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Cambridge University</td>
-        <td>PhD, Many-body Quantum Physics (AMOP Group)</td>
-        <td>Present 2024</td>
-      </tr>
-      <tr>
-        <td>Imperial College London</td>
-        <td>MSc Physics with Quantum Dynamics</td>
-        <td>2023 2022</td>
-      </tr>
-      <tr>
-        <td>Centrale Lyon</td>
-        <td>BSc & MSc in Engineering</td>
-        <td>2024 2020</td>
-      </tr>
-    </tbody>
-  </table>
-  
+    <table>
+      <thead>
+        <tr>
+          <th>Institution</th>
+          <th>Program</th>
+          <th>Years</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>University of Cambridge</td>
+          <td>PhD, Many-body Quantum Physics (AMOP Group)</td>
+          <td class="dates">2024 – present</td>
+        </tr>
+        <tr>
+          <td>Imperial College London</td>
+          <td>MSc Physics with Quantum Dynamics</td>
+          <td class="dates">2022 – 2023</td>
+        </tr>
+        <tr>
+          <td>Centrale Lyon</td>
+          <td>BSc &amp; MSc in Engineering</td>
+          <td class="dates">2020 – 2024</td>
+        </tr>
+      </tbody>
+    </table>
 
+    <h2>Experience</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Organization</th>
+          <th>Role / Description</th>
+          <th>Dates</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>University of Cambridge</td>
+          <td>Physics Supervisor: tutoring undergraduate students in advanced quantum mechanics, one-on-one &amp; group sessions</td>
+          <td class="dates">ongoing</td>
+        </tr>
+        <tr>
+          <td>Atos / Eviden</td>
+          <td>Quantum Computing Intern: tensor networks, quantum trajectories, Python/C++ simulations on Rydberg atom systems</td>
+          <td class="dates">Dec 2023 – Jul 2024</td>
+        </tr>
+        <tr>
+          <td>Imperial College London</td>
+          <td>Master Thesis: designed a Wigner tomography protocol for transmon qubits, Bayesian parameter optimization, Mathematica modeling</td>
+          <td class="dates">May 2023 – Oct 2023</td>
+        </tr>
+        <tr>
+          <td>CNRS</td>
+          <td>Nanophotonics Intern: investigated the Klein paradox in fishbone structures, photon-tunneling simulations with RSoft/MATLAB</td>
+          <td class="dates">May 2022 – Aug 2022</td>
+        </tr>
+        <tr>
+          <td>Centrale Lyon</td>
+          <td>Researcher: strong coupling of light and matter using perovskites, cleanroom fabrication, MATLAB spectrum design</td>
+          <td class="dates">2021 – 2022</td>
+        </tr>
+        <tr>
+          <td>Centrale Lyon</td>
+          <td>Club Founder: created the Math &amp; Physics Club to promote problem-solving and fundamental science</td>
+          <td class="dates">2021 – 2024</td>
+        </tr>
+      </tbody>
+    </table>
 
-  <h2>Experiences</h2>
-  <table>
-    <thead>
-      <tr>
-        <th class="width-min">Organization</th>
-        <th class="width-auto">Role / Description</th>
-        <th class="width-min">Dates</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>University of Cambridge</td>
-        <td>Physics Supervisor: Tutoring undergraduate students in advanced quantum mechanics, one-on-one & group sessions</td>
-        <td>Ongoing</td>
-      </tr>
-      <tr>
-        <td>Atos / Eviden</td>
-        <td>Quantum Computing Intern: Tensor networks, quantum trajectories, Python/C++ simulations on Rydberg atom systems</td>
-        <td>Dec 2023  Jul 2024</td>
-      </tr>
-      <tr>
-        <td>CNRS</td>
-        <td>Nanophotonics Intern: Investigated Klein paradox in fishbone structures, photon tunneling simulations with RSoft/MATLAB</td>
-        <td>May 2022  Aug 2022</td>
-      </tr>
-      <tr>
-        <td>Imperial College London</td>
-        <td>Master Thesis: Designed Wigner tomography protocol for transmon qubits, Bayesian parameter optimization, Mathematica modeling</td>
-        <td>May 2023  Oct 2023</td>
-      </tr>
-      <tr>
-        <td>Centrale Lyon</td>
-        <td>Researcher: Strong coupling of light and matter using perovskites, cleanroom fabrication, MATLAB spectrum design</td>
-        <td>2021  2022</td>
-      </tr>
-      <tr>
-        <td>Centrale Lyon</td>
-        <td>Club Founder: Created Math & Physics Club to promote problem-solving and fundamental science</td>
-        <td>2021  2024</td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
+    <footer class="site-footer">
+      <span>© 2026 Baptiste Lerat</span>
+      <span>background: Henri Rousseau, <em>Tiger in a Tropical Storm</em> (1891)</span>
+    </footer>
+
+  </main>
 </body>
+
 </html>

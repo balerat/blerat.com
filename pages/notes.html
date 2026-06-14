@@ -5,11 +5,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Baptiste Lerat" />
-  <title>Blog — blerat.com</title>
+  <title>Notes — blerat.com</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐅</text></svg>" />
   <link rel="stylesheet" href="../src/reset.css" />
   <link rel="stylesheet" href="../src/main.css" />
   <script src="../src/site.js"></script>
+  <script src="../src/notes.js" defer></script>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
       <div class="header-right">
         <nav>
           <a href="../index.html">home</a>
-          <a href="notes.html">notes</a>
+          <a href="notes.html" aria-current="page">notes</a>
           <a href="projects.html">projects</a>
           <a href="toys.html">toys</a>
           <a href="resume.html">resume</a>
@@ -29,8 +30,12 @@
       </div>
     </header>
 
-    <h1>Blog</h1>
-    <p class="subtitle">Coming soon: reflections on quantum simulation, cold-atom experiments, and more.</p>
+    <h1>Notes</h1>
+    <p class="subtitle">Short, irregular write-ups — quantum simulation, cold atoms, things I debugged.</p>
+
+    <div id="note-list">
+      <p>Loading notes…</p>
+    </div>
 
     <footer class="site-footer">
       <span>© 2026 Baptiste Lerat</span>
