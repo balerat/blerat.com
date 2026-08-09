@@ -1,3 +1,4 @@
+
 function gridCellDimensions() {
   const element = document.createElement("div");
   element.style.position = "fixed";

@@ -1,114 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Baptiste Lerat" />
-  <title>Resume — blerat.com</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐅</text></svg>" />
-  <link rel="stylesheet" href="../src/reset.css" />
+  <title>Resume — blerat</title>
   <link rel="stylesheet" href="../src/main.css" />
-  <script src="../src/site.js"></script>
 </head>
-
 <body>
-  <main class="card">
+  <main>
+    <h1 class="title">blerat.com</h1>
 
-    <header class="site-header">
-      <a class="wordmark" href="../index.html">~/blerat</a>
-      <div class="header-right">
-        <nav>
-          <a href="../index.html">home</a>
-          <a href="notes.html">notes</a>
-          <a href="projects.html">projects</a>
-          <a href="toys.html">toys</a>
-          <a href="resume.html" aria-current="page">resume</a>
-        </nav>
-        <button class="theme-toggle" aria-label="toggle dark mode">☾</button>
-      </div>
-    </header>
+    <nav class="header">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="resume.html" aria-current="page">Resume</a></li>
+      </ul>
+    </nav>
 
-    <h1>Resume</h1>
-    <p class="subtitle">Also available as a <a href="../media/resume.pdf" download>PDF</a>.</p>
+    <div class="content">
+      <h2 class="page-title">Resume</h2>
 
-    <h2>Education</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Institution</th>
-          <th>Program</th>
-          <th>Years</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>University of Cambridge</td>
-          <td>PhD, Many-body Quantum Physics (AMOP Group)</td>
-          <td class="dates">2024 – present</td>
-        </tr>
-        <tr>
-          <td>Imperial College London</td>
-          <td>MSc Physics with Quantum Dynamics</td>
-          <td class="dates">2022 – 2023</td>
-        </tr>
-        <tr>
-          <td>Centrale Lyon</td>
-          <td>BSc &amp; MSc in Engineering</td>
-          <td class="dates">2020 – 2024</td>
-        </tr>
-      </tbody>
-    </table>
+      <p>
+        Full version available as a PDF:
+        <a class="download" href="../media/resume.pdf" download>resume.pdf</a>
+      </p>
 
-    <h2>Experience</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Organization</th>
-          <th>Role / Description</th>
-          <th>Dates</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>University of Cambridge</td>
-          <td>Physics Supervisor: tutoring undergraduate students in advanced quantum mechanics, one-on-one &amp; group sessions</td>
-          <td class="dates">ongoing</td>
-        </tr>
-        <tr>
-          <td>Atos / Eviden</td>
-          <td>Quantum Computing Intern: tensor networks, quantum trajectories, Python/C++ simulations on Rydberg atom systems</td>
-          <td class="dates">Dec 2023 – Jul 2024</td>
-        </tr>
-        <tr>
-          <td>Imperial College London</td>
-          <td>Master Thesis: designed a Wigner tomography protocol for transmon qubits, Bayesian parameter optimization, Mathematica modeling</td>
-          <td class="dates">May 2023 – Oct 2023</td>
-        </tr>
-        <tr>
-          <td>CNRS</td>
-          <td>Nanophotonics Intern: investigated the Klein paradox in fishbone structures, photon-tunneling simulations with RSoft/MATLAB</td>
-          <td class="dates">May 2022 – Aug 2022</td>
-        </tr>
-        <tr>
-          <td>Centrale Lyon</td>
-          <td>Researcher: strong coupling of light and matter using perovskites, cleanroom fabrication, MATLAB spectrum design</td>
-          <td class="dates">2021 – 2022</td>
-        </tr>
-        <tr>
-          <td>Centrale Lyon</td>
-          <td>Club Founder: created the Math &amp; Physics Club to promote problem-solving and fundamental science</td>
-          <td class="dates">2021 – 2024</td>
-        </tr>
-      </tbody>
-    </table>
+      <h3 class="section">Education</h3>
+      <table>
+        <thead>
+          <tr>
+            <th class="width-min">Institution</th>
+            <th class="width-auto">Program</th>
+            <th class="width-min">Years</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>University of Cambridge</td>
+            <td>PhD, many-body quantum physics (AMOP group)</td>
+            <td>2024 &ndash; present</td>
+          </tr>
+          <tr>
+            <td>Imperial College London</td>
+            <td>MSc physics with quantum dynamics</td>
+            <td>2022 &ndash; 2023</td>
+          </tr>
+          <tr>
+            <td>Centrale Lyon</td>
+            <td>BSc &amp; MSc in engineering</td>
+            <td>2020 &ndash; 2024</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <footer class="site-footer">
-      <span>© 2026 Baptiste Lerat</span>
-      <span>background: Henri Rousseau, <em>Tiger in a Tropical Storm</em> (1891)</span>
-    </footer>
-
+      <h3 class="section">Experience</h3>
+      <table>
+        <thead>
+          <tr>
+            <th class="width-min">Organization</th>
+            <th class="width-auto">Role</th>
+            <th class="width-min">Dates</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>University of Cambridge</td>
+            <td>
+              <strong>Physics supervisor.</strong> Tutoring undergraduates in
+              advanced quantum mechanics, one-on-one and in small groups.
+            </td>
+            <td>ongoing</td>
+          </tr>
+          <tr>
+            <td>Atos / Eviden</td>
+            <td>
+              <strong>Quantum computing intern.</strong> Tensor networks and
+              quantum trajectories; Python and C++ simulations of Rydberg atom
+              systems.
+            </td>
+            <td>Dec 2023 &ndash; Jul 2024</td>
+          </tr>
+          <tr>
+            <td>Imperial College London</td>
+            <td>
+              <strong>Master's thesis.</strong> Designed a Wigner tomography
+              protocol for transmon qubits; Bayesian parameter optimisation and
+              Mathematica modelling.
+            </td>
+            <td>May 2023 &ndash; Oct 2023</td>
+          </tr>
+          <tr>
+            <td>CNRS</td>
+            <td>
+              <strong>Nanophotonics intern.</strong> Investigated the Klein
+              paradox in fishbone structures; photon tunnelling simulations in
+              RSoft and MATLAB.
+            </td>
+            <td>May 2022 &ndash; Aug 2022</td>
+          </tr>
+          <tr>
+            <td>Centrale Lyon</td>
+            <td>
+              <strong>Researcher.</strong> Strong light&ndash;matter coupling
+              using perovskites; cleanroom fabrication and MATLAB spectrum
+              design.
+            </td>
+            <td>2021 &ndash; 2022</td>
+          </tr>
+          <tr>
+            <td>Centrale Lyon</td>
+            <td>
+              <strong>Club founder.</strong> Founded the maths and physics club
+              to promote problem-solving and fundamental science.
+            </td>
+            <td>2021 &ndash; 2024</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </main>
-</body>
 
+  <script src="../src/mla-bg.js"></script>
+  <script>
+    document.fonts.ready.then(function () {
+      var css = getComputedStyle(document.documentElement);
+      MLABackground({
+        offsetX: 0.34,
+        offsetY: 0.36,
+        fill: 0.46,
+        opacity: 0.22,
+        fontSize: 10,
+        color: css.getPropertyValue('--color').trim(),
+        fontFamily: css.getPropertyValue('--mla-font').trim()
+      });
+    });
+  </script>
+</body>
 </html>

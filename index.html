@@ -1,62 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Baptiste Lerat" />
-  <meta name="description" content="Baptiste Lerat — PhD student in physics at the University of Cambridge, working on cold atoms in optical lattices." />
-  <title>Baptiste Lerat — blerat.com</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐅</text></svg>" />
-  <link rel="stylesheet" href="src/reset.css" />
+  <title>blerat</title>
   <link rel="stylesheet" href="src/main.css" />
-  <script src="src/site.js"></script>
 </head>
-
 <body>
-  <main class="card">
+  <main>
+    <h1 class="title">blerat.com</h1>
 
-    <header class="site-header">
-      <a class="wordmark" href="index.html">~/blerat</a>
-      <div class="header-right">
-        <nav>
-          <a href="index.html" aria-current="page">home</a>
-          <a href="pages/notes.html">notes</a>
-          <a href="pages/projects.html">projects</a>
-          <a href="pages/toys.html">toys</a>
-          <a href="pages/resume.html">resume</a>
-        </nav>
-        <button class="theme-toggle" aria-label="toggle dark mode">☾</button>
-      </div>
-    </header>
+    <nav class="header">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="pages/projects.html">Projects</a></li>
+        <li><a href="pages/blog.html">Blog</a></li>
+        <li><a href="pages/resume.html">Resume</a></li>
+      </ul>
+    </nav>
 
-    <section class="intro">
-      <div>
-        <h1>Baptiste Lerat</h1>
-        <p class="subtitle">PhD student in Physics · University of Cambridge</p>
+    <div class="content">
+      <div class="intro">
+        <img class="portrait" src="media/pp.png" alt="Baptiste Lerat" width="200" height="200" data-sound="media/work-work.mp3" title="click me" />
         <p>
-          I work on cold-atom experiments in optical lattices in the AMOP
-          group, exploring many-body quantum physics one laser-cooled atom
-          at a time.
-        </p>
-        <p>
-          Contact me at <a href="mailto:lerat.baptiste99@proton.me">lerat.baptiste99@proton.me</a>
-        </p>
-        <p class="social">
-          <a href="https://github.com/balerat">github</a>
-          <a href="https://www.youtube.com/@balerat">youtube</a>
-          <a href="https://www.linkedin.com/in/baptiste-lerat/">linkedin</a>
+          I am a PhD student in physics at the University of Cambridge. I work on
+          cold atoms experiments in optical lattices to study many-body phenomena.
         </p>
       </div>
-      <img class="portrait" src="media/pp.png" alt="profile picture" data-sound="media/work-work.mp3" title="click me" />
-    </section>
 
-    <footer class="site-footer">
-      <span>© 2026 Baptiste Lerat</span>
-      <span>background: Henri Rousseau, <em>Tiger in a Tropical Storm</em> (1891)</span>
-    </footer>
-
+      <ul class="contact">
+        <li><a href="https://github.com/balerat">github</a></li>
+        <li><a href="https://www.youtube.com/@balerat">youtube</a></li>
+        <li><a href="https://www.linkedin.com/in/baptiste-lerat/">linkedin</a></li>
+        <li><a href="https://www.manybody.phy.cam.ac.uk/">MBQD</a></li>
+      </ul>
+    </div>
   </main>
-</body>
 
+  <script src="src/mla-bg.js"></script>
+  <script>
+    document.fonts.ready.then(function () {
+      var css = getComputedStyle(document.documentElement);
+      MLABackground({
+        offsetX: 0.34,
+        offsetY: 0.36,
+        fill: 0.46,
+        opacity: 0.22,
+        fontSize: 10,
+        color: css.getPropertyValue('--color').trim(),
+        fontFamily: css.getPropertyValue('--mla-font').trim()
+      });
+    });
+  </script>
+  <script>
+  document.querySelectorAll('[data-sound]').forEach(function (el) {
+    var audio = new Audio(el.dataset.sound);
+    el.classList.add('clickable');
+    el.addEventListener('click', function () {
+      audio.currentTime = 0;
+      audio.play().catch(function () {});
+    });
+  });
+</script>
+</body>
 </html>
