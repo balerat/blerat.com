@@ -4,139 +4,112 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Baptiste Lerat" />
-  <title>Resume — blerat</title>
+  <meta name="description" content="Baptiste Lerat — PhD student in physics at the University of Cambridge." />
+  <title>Resume</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232b5d8a'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='600' fill='white' text-anchor='middle'%3EBL%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="../src/main.css" />
 </head>
 <body>
-  <main>
-    <h1 class="title">blerat.com</h1>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="site-name" href="../index.html">b.lerat</a>
+      <nav class="header" aria-label="Main">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="resume.html" aria-current="page">Resume</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <nav class="header">
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="resume.html" aria-current="page">Resume</a></li>
-      </ul>
-    </nav>
+      <main>
+      <h1 class="page-title">Resume</h1>
 
-    <div class="content">
-      <h2 class="page-title">Resume</h2>
-
-      <p>
-        Full version available as a PDF:
-        <a class="download" href="../media/resume.pdf" download>resume.pdf</a>
+      <p class="resume-lead">
+        Full version available as a PDF.
+        <a class="download" href="../media/resume.pdf" download>Download resume.pdf &darr;</a>
       </p>
 
-      <h3 class="section">Education</h3>
-      <table>
-        <thead>
-          <tr>
-            <th class="width-min">Institution</th>
-            <th class="width-auto">Program</th>
-            <th class="width-min">Years</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>University of Cambridge</td>
-            <td>PhD, many-body quantum physics (AMOP group)</td>
-            <td>2024 &ndash; present</td>
-          </tr>
-          <tr>
-            <td>Imperial College London</td>
-            <td>MSc physics with quantum dynamics</td>
-            <td>2022 &ndash; 2023</td>
-          </tr>
-          <tr>
-            <td>Centrale Lyon</td>
-            <td>BSc &amp; MSc in engineering</td>
-            <td>2020 &ndash; 2024</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2 class="section">Education</h2>
+      <ol class="timeline">
+        <li>
+          <span class="when">2024 &ndash; present</span>
+          <div>
+            <span class="where">University of Cambridge</span>
+            <span class="what">PhD, many-body quantum physics (AMOP group)</span>
+          </div>
+        </li>
+        <li>
+          <span class="when">2022 &ndash; 2023</span>
+          <div>
+            <span class="where">Imperial College London</span>
+            <span class="what">MSc physics with quantum dynamics</span>
+          </div>
+        </li>
+        <li>
+          <span class="when">2020 &ndash; 2024</span>
+          <div>
+            <span class="where">Centrale Lyon</span>
+            <span class="what">BSc &amp; MSc in engineering</span>
+          </div>
+        </li>
+      </ol>
 
-      <h3 class="section">Experience</h3>
-      <table>
-        <thead>
-          <tr>
-            <th class="width-min">Organization</th>
-            <th class="width-auto">Role</th>
-            <th class="width-min">Dates</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>University of Cambridge</td>
-            <td>
-              <strong>Physics supervisor.</strong> Tutoring undergraduates in
-              advanced quantum mechanics, one-on-one and in small groups.
-            </td>
-            <td>ongoing</td>
-          </tr>
-          <tr>
-            <td>Atos / Eviden</td>
-            <td>
-              <strong>Quantum computing intern.</strong> Tensor networks and
-              quantum trajectories; Python and C++ simulations of Rydberg atom
-              systems.
-            </td>
-            <td>Dec 2023 &ndash; Jul 2024</td>
-          </tr>
-          <tr>
-            <td>Imperial College London</td>
-            <td>
-              <strong>Master's thesis.</strong> Designed a Wigner tomography
-              protocol for transmon qubits; Bayesian parameter optimisation and
-              Mathematica modelling.
-            </td>
-            <td>May 2023 &ndash; Oct 2023</td>
-          </tr>
-          <tr>
-            <td>CNRS</td>
-            <td>
-              <strong>Nanophotonics intern.</strong> Investigated the Klein
-              paradox in fishbone structures; photon tunnelling simulations in
-              RSoft and MATLAB.
-            </td>
-            <td>May 2022 &ndash; Aug 2022</td>
-          </tr>
-          <tr>
-            <td>Centrale Lyon</td>
-            <td>
-              <strong>Researcher.</strong> Strong light&ndash;matter coupling
-              using perovskites; cleanroom fabrication and MATLAB spectrum
-              design.
-            </td>
-            <td>2021 &ndash; 2022</td>
-          </tr>
-          <tr>
-            <td>Centrale Lyon</td>
-            <td>
-              <strong>Club founder.</strong> Founded the maths and physics club
-              to promote problem-solving and fundamental science.
-            </td>
-            <td>2021 &ndash; 2024</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </main>
-
-  <script src="../src/mla-bg.js"></script>
-  <script>
-    document.fonts.ready.then(function () {
-      var css = getComputedStyle(document.documentElement);
-      MLABackground({
-        offsetX: 0.34,
-        offsetY: 0.36,
-        fill: 0.46,
-        opacity: 0.22,
-        fontSize: 10,
-        color: css.getPropertyValue('--color').trim(),
-        fontFamily: css.getPropertyValue('--mla-font').trim()
-      });
-    });
-  </script>
+      <h2 class="section">Experience</h2>
+      <ol class="timeline">
+        <li>
+          <span class="when">Ongoing</span>
+          <div>
+            <span class="where">University of Cambridge</span>
+            <span class="what"><strong>Physics supervisor.</strong> Tutoring undergraduates in advanced quantum mechanics, one-on-one and in small groups.</span>
+          </div>
+        </li>
+        <li>
+          <span class="when">Dec 2023 &ndash; Jul 2024</span>
+          <div>
+            <span class="where">Atos / Eviden</span>
+            <span class="what"><strong>Quantum computing intern.</strong> Tensor networks and quantum trajectories; Python and C++ simulations of Rydberg atom systems.</span>
+          </div>
+        </li>
+        <li>
+          <span class="when">May 2023 &ndash; Oct 2023</span>
+          <div>
+            <span class="where">Imperial College London</span>
+            <span class="what"><strong>Master's thesis.</strong> Designed a Wigner tomography protocol for transmon qubits; Bayesian parameter optimisation and Mathematica modelling.</span>
+          </div>
+        </li>
+        <li>
+          <span class="when">May 2022 &ndash; Aug 2022</span>
+          <div>
+            <span class="where">CNRS</span>
+            <span class="what"><strong>Nanophotonics intern.</strong> Investigated the Klein paradox in fishbone structures; photon tunnelling simulations in RSoft and MATLAB.</span>
+          </div>
+        </li>
+        <li>
+          <span class="when">2021 &ndash; 2022</span>
+          <div>
+            <span class="where">Centrale Lyon</span>
+            <span class="what"><strong>Researcher.</strong> Strong light&ndash;matter coupling using perovskites; cleanroom fabrication and MATLAB spectrum design.</span>
+          </div>
+        </li>
+        <li>
+          <span class="when">2021 &ndash; 2024</span>
+          <div>
+            <span class="where">Centrale Lyon</span>
+            <span class="what"><strong>Club founder.</strong> Founded the maths and physics club to promote problem-solving and fundamental science.</span>
+          </div>
+        </li>
+      </ol>
+    </main>
+   <footer class="site-footer">
+      <span>&copy; 2026 Baptiste Lerat</span>
+      <ul>
+        <li><a href="https://github.com/balerat">GitHub</a></li>
+        <li><a href="https://www.youtube.com/@balerat">YouTube</a></li>
+        <li><a href="https://www.linkedin.com/in/baptiste-lerat/">LinkedIn</a></li>
+      </ul>
+    </footer>
+  </div>
 </body>
 </html>

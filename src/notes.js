@@ -113,7 +113,7 @@ function renderNoteList(el) {
 function renderNote(el) {
   var f = new URLSearchParams(location.search).get('f') || '';
   if (!/^[A-Za-z0-9._-]+\.md$/.test(f)) {
-    el.innerHTML = '<p>Note not found. Back to <a href="notes.html">notes</a>.</p>';
+    el.innerHTML = '<p>Note not found. Back to <a href="blog.html">notes</a>.</p>';
     return;
   }
   fetch('../notes/' + f)
@@ -133,7 +133,7 @@ function renderNote(el) {
       });
     })
     .catch(function () {
-      el.innerHTML = '<p>Could not load this note. Back to <a href="notes.html">notes</a>.</p>';
+      el.innerHTML = '<p>Could not load this note. Back to <a href="blog.html">notes</a>.</p>';
     });
 }
 

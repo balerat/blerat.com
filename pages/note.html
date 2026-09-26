@@ -1,55 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Baptiste Lerat" />
-  <title>Blog — blerat</title>
+  <meta name="description" content="Baptiste Lerat — PhD student in physics at the University of Cambridge." />
+  <title>Note</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232b5d8a'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='600' fill='white' text-anchor='middle'%3EBL%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="../src/main.css" />
   <script src="../src/notes.js" defer></script>
 </head>
-
 <body>
-  <main>
-    <h1 class="title">blerat.com</h1>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="site-name" href="../index.html">b.lerat</a>
+      <nav class="header" aria-label="Main">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="blog.html" aria-current="page">Blog</a></li>
+          <li><a href="resume.html">Resume</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <nav class="header">
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="blog.html" aria-current="page">Blog</a></li>
-        <li><a href="resume.html">Resume</a></li>
-      </ul>
-    </nav>
+    <main>
+      <a class="back" href="blog.html">&larr; All notes</a>
 
-    <div class="content">
-      <h2 class="page-title">Blog</h2>
       <article id="note-article" class="note-body">
         <p>Loading note…</p>
       </article>
+    </main>
 
-      <p><a href="blog.html">← all notes</a></p>
-    </div>
-  </main>
-
-  <script src="../src/mla-bg.js"></script>
-
-  <script>
-    document.fonts.ready.then(function () {
-      var css = getComputedStyle(document.documentElement);
-      MLABackground({
-        offsetX: 0.34,
-        offsetY: 0.36,
-        fill: 0.46,
-        opacity: 0.22,
-        fontSize: 10,
-        color: css.getPropertyValue('--color').trim(),
-        fontFamily: css.getPropertyValue('--mla-font').trim()
-      });
-    });
-  </script>
-
+    <footer class="site-footer">
+      <span>&copy; 2026 Baptiste Lerat</span>
+      <ul>
+        <li><a href="https://github.com/balerat">GitHub</a></li>
+        <li><a href="https://www.youtube.com/@balerat">YouTube</a></li>
+        <li><a href="https://www.linkedin.com/in/baptiste-lerat/">LinkedIn</a></li>
+      </ul>
+    </footer>
+  </div>
 </body>
-
 </html>
