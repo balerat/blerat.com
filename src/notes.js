@@ -1,7 +1,8 @@
 /* Notes: a ~100-line markdown renderer plus the list/article pages.
    Supports: # headings, paragraphs, **bold**, *italic*, `code`,
    fenced ``` blocks, [links](url), ![images](src), - and 1. lists,
-   > blockquotes, --- rules. That's it, on purpose. */
+   > blockquotes, --- rules, $inline$ and $$display$$ math (KaTeX).
+   That's it, on purpose. */
 
 function escapeHtml(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -22,14 +23,32 @@ function mdInline(s) {
   return s.replace(/\u0000C(\d+)\u0000/g, function (_, n) { return codes[n]; });
 }
 
+function renderMath(tex, display) {
+  if (window.katex) {
+    return katex.renderToString(tex, { displayMode: display, throwOnError: false });
+  }
+  return '<code>' + escapeHtml(tex) + '</code>';
+}
+
 function mdToHtml(src) {
   src = src.replace(/\r\n?/g, '\n').replace(/\u0000/g, '');
 
   var blocks = [];
-  src = src.replace(/```[^\n]*\n([\s\S]*?)```/g, function (_, code) {
-    blocks.push('<pre><code>' + escapeHtml(code.replace(/\n$/, '')) + '</code></pre>');
+  src = src.replace(/```([\w+-]*)[^\n]*\n([\s\S]*?)```/g, function (_, lang, code) {
+    var cls = lang ? ' class="language-' + lang + '"' : '';
+    blocks.push('<pre><code' + cls + '>' + escapeHtml(code.replace(/\n$/, '')) + '</code></pre>');
     return '\u0000B' + (blocks.length - 1) + '\u0000';
   });
+
+  /* Math is pulled out before escaping so TeX survives untouched.
+     Inline code spans are matched too, and left alone, so `$x` stays code. */
+  var maths = [];
+  src = src.replace(/`[^`\n]+`|\$\$([\s\S]+?)\$\$|\$([^\s$](?:[^$\n]*[^\s$])?)\$/g,
+    function (m, display, inline) {
+      if (m[0] === '`') return m;
+      maths.push(display !== undefined ? { tex: display.trim(), display: true } : { tex: inline, display: false });
+      return '\u0000M' + (maths.length - 1) + '\u0000';
+    });
 
   src = escapeHtml(src);
 
@@ -45,6 +64,9 @@ function mdToHtml(src) {
 
     if ((m = line.match(/^\u0000B(\d+)\u0000\s*$/))) {
       out.push(blocks[+m[1]]);
+      i++;
+    } else if ((m = line.match(/^\u0000M(\d+)\u0000\s*$/)) && maths[+m[1]].display) {
+      out.push('<div class="math-display">\u0000M' + m[1] + '\u0000</div>');
       i++;
     } else if ((m = line.match(/^(#{1,4})\s+(.*)$/))) {
       var lvl = m[1].length;
@@ -81,7 +103,34 @@ function mdToHtml(src) {
     }
   }
 
-  return out.join('\n');
+  return out.join('\n').replace(/\u0000M(\d+)\u0000/g, function (_, n) {
+    return renderMath(maths[n].tex, maths[n].display);
+  });
+}
+
+function slugify(text) {
+  return text.toLowerCase().replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-') || 'section';
+}
+
+/* Give h2/h3 ids and a hover "#" permalink. */
+function addAnchors(el) {
+  var used = {};
+  el.querySelectorAll('h2, h3').forEach(function (h) {
+    var id = slugify(h.textContent);
+    if (used[id]) id += '-' + (++used[id]); else used[id] = 1;
+    h.id = id;
+    var a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + id;
+    a.setAttribute('aria-label', 'Link to this section');
+    a.textContent = '#';
+    h.insertBefore(a, h.firstChild);
+  });
+}
+
+function readingTime(md) {
+  var words = md.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200)) + ' min read';
 }
 
 /* ---- Page wiring ---- */
@@ -120,6 +169,8 @@ function renderNote(el) {
     .then(function (r) { if (!r.ok) throw new Error(); return r.text(); })
     .then(function (md) {
       el.innerHTML = mdToHtml(md);
+      addAnchors(el);
+      if (window.hljs) el.querySelectorAll('pre code').forEach(function (c) { hljs.highlightElement(c); });
       var h1 = el.querySelector('h1');
       if (h1) document.title = h1.textContent + ' — blerat.com';
       return fetch('../notes/index.json').then(function (r) { return r.json(); }).then(function (idx) {
@@ -127,8 +178,12 @@ function renderNote(el) {
         if (entry && h1) {
           var date = document.createElement('p');
           date.className = 'subtitle';
-          date.textContent = entry.date;
+          date.textContent = entry.date + ' \u00b7 ' + readingTime(md);
           h1.insertAdjacentElement('afterend', date);
+        }
+        if (location.hash) {
+          var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+          if (target) target.scrollIntoView();
         }
       });
     })

@@ -20,6 +20,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-north-1
 
+      - name: Build RSS feed
+        run: python3 scripts/build_feed.py
+
       - name: Sync to S3
         run: |
-          aws s3 sync . s3://blerat.com --delete
+          aws s3 sync . s3://blerat.com --delete \
+            --exclude ".git/*" --exclude ".github/*" --exclude ".claude/*" \
+            --exclude "scripts/*" --exclude ".gitignore" \
+            --exclude "*.md" --include "notes/*.md"

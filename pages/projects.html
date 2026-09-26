@@ -6,8 +6,11 @@
   <meta name="author" content="Baptiste Lerat" />
   <meta name="description" content="Baptiste Lerat — PhD student in physics at the University of Cambridge." />
   <title>Projects</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232b5d8a'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='600' fill='white' text-anchor='middle'%3EBL%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%80%3C/text%3E%3C/svg%3E" />
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+  <link rel="alternate" type="application/rss+xml" title="Baptiste Lerat — Blog" href="/feed.xml" />
   <link rel="stylesheet" href="../src/main.css" />
+  <script src="../src/site.js" defer></script>
 </head>
 <body>
   <div class="wrap">
@@ -21,6 +24,7 @@
           <li><a href="resume.html">Resume</a></li>
         </ul>
       </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">&#9790;</button>
     </header>
 
     <main>
@@ -29,7 +33,10 @@
       <article class="project">
         <div class="project-head">
           <h3>Sillon</h3>
-          <a class="repo" href="https://github.com/balerat/sillon">GitHub &nearr;</a>
+          <span class="links">
+            <a class="repo" href="https://sillonlab.dev">Website <span class="arr">&nearr;</span></a>
+            <a class="repo" href="https://github.com/balerat/sillon">GitHub <span class="arr">&nearr;</span></a>
+          </span>
         </div>
         <p>A tooling library to log and read simulation run and keep track of my data analysis of day to day work. It's pretty neat.</p>
         <ul class="tags"><li>Python</li><li>SQL</li></ul>
@@ -58,6 +65,7 @@
         <li><a href="https://github.com/balerat">GitHub</a></li>
         <li><a href="https://www.youtube.com/@balerat">YouTube</a></li>
         <li><a href="https://www.linkedin.com/in/baptiste-lerat/">LinkedIn</a></li>
+        <li><a href="/feed.xml">RSS</a></li>
       </ul>
     </footer>
   </div>
